@@ -1,3 +1,5 @@
+import {ADD_TODO, TOGGLE_TODO, DELETE_TODO} from './types'
+
 export const todoReducer = (state= [], action)  => {
        switch (action.type) {
            case 'ADD_TODO':
@@ -13,6 +15,8 @@ export const todoReducer = (state= [], action)  => {
                    }
                    return todo;
                })
+            case DELETE_TODO
+               return state.filter(todo => todo.id !== action.payload)
            default:
                return state;
        }
